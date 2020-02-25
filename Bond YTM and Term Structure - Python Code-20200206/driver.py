@@ -2,8 +2,8 @@ import csv
 import matplotlib.pylab as plt
 import seaborn as sns
 
-from Treasury.bond import Bond
-from Treasury.term_structure import TermStructure
+from bond import Bond
+from term_structure import TermStructure
 
 
 def read_bonds_from_file(file_name):
