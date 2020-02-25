@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f32078f-b4a8-46ad-bf6f-726bd70514f6" name="Default Changelist" comment="" />
+    <list default="true" id="8f32078f-b4a8-46ad-bf6f-726bd70514f6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/05/15/foreground.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/06/14/foreground.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/06/18/foreground.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/06/29/foreground.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/07/19/foreground.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/07/26/foreground.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/08/10/foreground.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/09/05/foreground.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/09/18/foreground.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/09/19/foreground.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/10/10/foreground.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/10/22/foreground.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/11/26/foreground.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/12/03/foreground.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZT_OrderBook/TickData_ZT/ZT/2018/12/06/foreground.h5" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -43,7 +67,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
