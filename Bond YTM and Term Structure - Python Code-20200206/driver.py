@@ -1,8 +1,6 @@
 import csv
-import matplotlib.pylab as plt
-import seaborn as sns
 
-from bond import Bond
+from TBill import TBills
 from term_structure import TermStructure
 
 
@@ -12,27 +10,28 @@ def read_bonds_from_file(file_name):
         reader = csv.reader(csvfile)
         for reader_row in reader:
             reader_row[0] = reader_row[0].strip().lower()
-            reader_row[1] = float(reader_row[1])
+            reader_row[1] = int(reader_row[1])
             reader_row[2] = int(reader_row[2])
-            reader_row[3] = int(reader_row[3])
-            reader_row[4] = int(reader_row[4])
+            #reader_row[3] = float(reader_row[3])
+            #reader_row[4] = int(reader_row[4])
+            #reader_row[5] keeps as string unchange
             rows.append(reader_row)
     return rows
 
 
 def main():
     # read bonds from a file and instantiate bond objects
-    bond_instruments = read_bonds_from_file("bonds.txt")
+    bond_instruments = read_bonds_from_file("TBill.txt")
     bonds = []
     for bond_instrument in bond_instruments:
-        bond = Bond(bond_instrument[0], bond_instrument[1], bond_instrument[2], bond_instrument[3], bond_instrument[4])
-        bond.set_price(float(bond_instrument[5]))
+        bond = TBills(bond_instrument[0], bond_instrument[1], bond_instrument[2])
+        bond.set_price(float(bond_instrument[3]))
         bonds.append(bond)
 
     # compute yield-to-maturities for bonds
     tenors_from_bonds, ytm_from_bonds = [], []
     for bond in bonds:
-        tenors_from_bonds.append(bond.get_tenor_in_years())
+        tenors_from_bonds.append(bond.get_tenor_in_days)
         ytm_from_bonds.append(bond.compute_ytm())
 
     # compute term structure (spot and forward rates) and discount factors
@@ -41,8 +40,25 @@ def main():
     term_structure.compute_spot_rates()
     term_structure.compute_discount_factors()
     term_structure.compute_forward_6m_rates()
+    term_structure.compute_forward_3m_rates()
 
-    tenor_count = 60
+    print(f'Name\tIssueDate\tMaturityDate\tPrice\tSpots_Rate\tYTM')
+    for bond in bonds:
+        print(f'{bond.get_name()}' +
+              f'\t{bond.get_issue_date()}\t{bond.get_maturity_date()}' +
+              f'\t{bond.get_price():10.4f}\t{bond.get_spotrate():10.4f}'+
+              f'\t{bond.compute_ytm():10.4f}')
+
+    print(f'Time Point\tForward 6m Rate\tForward 3m Rate')
+    for i in range(3):
+        TP=['20130301','20130601','20130901']
+        print(f'{TP[i]}'+
+              f'\t{term_structure.get_forward_6m_rate(i):10.4f}'+
+              f'\t{term_structure.get_forward_3m_rate(i):10.4f}')
+
+    print("NOTE: 20130901 6 month forward rate = 0 because we have no further data")
+'''
+    tenor_count = 4
     ts_tenors = [(i + 1) * 0.5 for i in range(tenor_count)]
     ts_spot_rates, ts_forward_6m_rates, ts_discount_factors = [], [], []
     for i in range(tenor_count):
@@ -50,13 +66,13 @@ def main():
         ts_forward_6m_rates.append(term_structure.get_forward_6m_rate(i))
         ts_discount_factors.append(term_structure.get_discount_factor(i))
 
-    print(f'Name\tCoupon\tIssueDate\tMaturityDate\tPrice\t\tYTM')
+    print(f'Name\tIssueDate\tMaturityDate\tPrice\t\tYTM')
     for bond in bonds:
-        print(f'{bond.get_name()}\t{bond.get_coupon():10.4f}' +
+        print(f'{bond.get_name()}' +
               f'\t{bond.get_issue_date()}\t{bond.get_maturity_date()}' +
               f'\t{bond.get_price():10.4f}\t{bond.compute_ytm():10.4f}')
     print(f'Tenor\tSpot Rate\tDiscount Factor\tForward 6m Rate')
-    for i in range(60):
+    for i in range(4):
         tenor = (i + 1) * 0.5
         print(f'{tenor:4.1f}y\t{term_structure.get_spot_rate(i):10.4f}' +
               f'\t{term_structure.get_discount_factor(i):10.4f}\t{term_structure.get_forward_6m_rate(i):10.4f}')
@@ -82,6 +98,8 @@ def main():
     ax.set_title(f'Discount Factors')
     ax.legend(loc='best', fontsize='x-small')
     plt.show()
+'''
+
 
 
 if __name__ == '__main__':
